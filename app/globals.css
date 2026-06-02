@@ -158,6 +158,82 @@ section { padding: clamp(70px, 11vh, 150px) clamp(24px, 8vw, 120px); position: r
 .tl-body:hover .tl-img img { transform: scale(1.05); }
 @media (max-width: 720px) { .tl-item { grid-template-columns: 1fr; gap: 14px } .tl-year { position: static } .tl-body { padding-left: 24px } }
 
+/* ---------- gallery (horizontal pin) ---------- */
+.gallery-section { padding: 0; }
+.gal-pin {
+  height: 320vh; position: relative;
+  background: linear-gradient(180deg, transparent, rgba(192, 169, 189, .06) 30%, rgba(148, 167, 174, .06) 70%, transparent);
+}
+.gal-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.gal-head { padding: 0 clamp(24px, 8vw, 120px); margin-bottom: 36px; }
+.gal-head .sec-head { margin-bottom: 0; }
+.gal-head h2 { font-size: clamp(28px, 4.2vw, 48px); }
+.gal-track {
+  display: flex; gap: 22px;
+  padding: 0 clamp(24px, 8vw, 120px);
+  will-change: transform;
+}
+.frame { flex: 0 0 clamp(280px, 30vw, 420px); }
+.frame .ph {
+  aspect-ratio: 4/5; border-radius: 6px; position: relative; overflow: hidden;
+  display: flex; align-items: flex-end; padding: 22px;
+  color: #fff;
+  box-shadow: 0 36px 70px -36px rgba(100, 118, 106, .55);
+}
+.frame .ph::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(46, 53, 48, .55), rgba(46, 53, 48, .05) 60%, transparent);
+  z-index: 1;
+}
+.frame .ph .badge {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  background: rgba(46, 53, 48, .78); color: var(--paper);
+  padding: 5px 12px; border-radius: 999px;
+}
+.frame .ph .ttl {
+  position: relative; z-index: 2;
+  font-family: var(--serif); font-size: 22px; line-height: 1.3; font-weight: 600;
+  white-space: pre-line;
+  text-shadow: 0 2px 14px rgba(46, 53, 48, .35);
+}
+.frame .cap {
+  margin-top: 14px; font-size: 13px; color: var(--ink-soft); letter-spacing: .02em;
+}
+
+/* placeholder tones (no image — pure gradient) */
+.ph.tone-1 { background: linear-gradient(135deg, var(--mauve), var(--blue)); }
+.ph.tone-2 { background: linear-gradient(150deg, var(--blue), var(--sage)); }
+.ph.tone-3 { background: linear-gradient(160deg, var(--sage), var(--mauve)); }
+.ph.tone-4 { background: linear-gradient(140deg, var(--mauve), var(--sage)); }
+.ph.tone-5 { background: linear-gradient(145deg, var(--blue), var(--mauve)); }
+
+/* photo frames */
+.ph.img { background-size: cover; background-position: center; background-color: var(--sage); }
+
+.gal-note {
+  position: absolute; bottom: 32px; left: clamp(24px, 8vw, 120px);
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--blue);
+}
+.gal-note em { color: var(--mauve); font-style: normal; margin-left: 6px; }
+
+@media (max-width: 720px) {
+  .gal-pin { height: auto; background: transparent; }
+  .gal-sticky {
+    position: static; height: auto; overflow: visible;
+    padding: 70px 0;
+  }
+  .gal-track {
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .gal-track .frame { scroll-snap-align: start; flex: 0 0 78vw; }
+  .gal-note { position: static; margin-top: 22px; padding: 0 24px; }
+}
+
 /* ---------- story ---------- */
 .story { display: grid; gap: 50px; }
 .story-block { display: grid; grid-template-columns: 180px 1fr; gap: 36px; }

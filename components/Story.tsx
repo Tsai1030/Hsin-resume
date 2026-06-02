@@ -40,7 +40,7 @@ export function Story() {
     <section id="story">
       <div className="wrap">
         <Reveal className="sec-head">
-          <span className="no">03</span>
+          <span className="no">04</span>
           <h2>
             <span className="zh-only">自傳</span>
             <span className="en-only">My Story</span>

@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const ITEMS = [
   { id: "hero", zh: "關於", en: "About" },
   { id: "strength", zh: "優勢", en: "Strengths" },
+  { id: "gallery", zh: "歷程", en: "Roles" },
   { id: "exp", zh: "經歷", en: "Experience" },
   { id: "story", zh: "自傳", en: "Story" },
   { id: "info", zh: "資料", en: "Info" },

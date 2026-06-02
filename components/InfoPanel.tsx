@@ -17,7 +17,7 @@ export function InfoPanel() {
       <section>
         <div className="wrap">
           <Reveal className="sec-head">
-            <span className="no">04</span>
+            <span className="no">05</span>
             <h2>
               <span className="zh-only">基本資料</span>
               <span className="en-only">Details</span>
@@ -36,7 +36,7 @@ export function InfoPanel() {
           </Reveal>
 
           <Reveal className="sec-head" style={{ marginTop: 80 }}>
-            <span className="no">05</span>
+            <span className="no">06</span>
             <h2>
               <span className="zh-only">專長</span>
               <span className="en-only">Skills</span>
