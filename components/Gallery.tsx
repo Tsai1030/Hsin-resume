@@ -27,7 +27,7 @@ const FRAMES: Frame[] = [
   },
   {
     badgeZh: "行政",
-    badgeEn: "Current",
+    badgeEn: "Admin",
     titleZh: "行政助理\n崴宇企業",
     titleEn: "Admin Assistant\nWei-Yu Enterprise",
     capZh: "文件・採購・行政支援",
