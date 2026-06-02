@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: "許馨文 · 履歷 | Hsin-Wen Hsu · Résumé",
   description:
     "許馨文的個人履歷網頁 — 行政人員。細心、耐心、有條理，能在多項任務並行下維持效率與正確性的行政支援。",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
