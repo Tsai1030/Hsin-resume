@@ -33,7 +33,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       { zh: "協助採購文具、管理辦公用品庫存。", en: "Procured supplies and managed office inventory." },
       { zh: "協助主管交辦事項與基本行政支援。", en: "Supported supervisors and general administration." },
     ],
-    img: "/崴宇企業有限公司.webp",
+    img: "/weiyu-enterprise.webp",
     imgAlt: "崴宇企業有限公司",
   },
   {
@@ -52,7 +52,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       { zh: "商品盤點。", en: "Inventory stocktaking." },
       { zh: "商品推薦與銷售。", en: "Product recommendation and sales." },
     ],
-    img: "/上亨.png",
+    img: "/shangheng-sports.png",
     imgAlt: "尚亨運動用品股份有限公司",
   },
   {
@@ -71,7 +71,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       { zh: "追蹤學生體檢缺項。", en: "Tracked missing student examination items." },
       { zh: "完成各校體檢報告交付。", en: "Delivered completed examination reports." },
     ],
-    img: "/義大醫院.jpg",
+    img: "/eda-hospital.jpg",
     imgAlt: "義大醫院",
   },
   {
@@ -91,7 +91,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       { zh: "協助醫師檢查與治療前後準備。", en: "Assisted physicians before and after procedures." },
       { zh: "病歷整理與系統登錄。", en: "Record organization and system entry." },
     ],
-    img: "/大林眼科診所.jpg",
+    img: "/dalin-eye-clinic.jpg",
     imgAlt: "大林眼科診所",
   },
   {
@@ -110,7 +110,7 @@ export const EXPERIENCE: ExperienceItem[] = [
       { zh: "協助看診、治療及器械傳遞。", en: "Assisted treatment and instrument handling." },
       { zh: "器械清潔、消毒與環境整理。", en: "Instrument sterilization and environment upkeep." },
     ],
-    img: "/成泰牙醫診所.png",
+    img: "/chengtai-dental.png",
     imgAlt: "成泰牙醫診所",
   },
 ];
