@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>許馨文 · 履歷｜方向 C 分割定格</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F4F2F3; --mauve:#C0A9BD; --blue:#94A7AE; --sage:#64766A;
+    --ink:#2e3530; --ink-soft:#5a625b; --line:rgba(100,118,106,.16);
+    --sans:"Noto Sans TC",sans-serif; --serif:"Noto Serif TC",serif;
+    --display:"Cormorant Garamond","Noto Serif TC",serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.85;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--mauve);color:#fff}
+
+  /* scroll progress */
+  .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--mauve),var(--blue));z-index:200;width:0}
+
+  .shell{display:grid;grid-template-columns:38% 62%;min-height:100vh}
+  @media(max-width:880px){ .shell{grid-template-columns:1fr} }
+
+  /* ---- left sticky panel ---- */
+  .side{position:sticky;top:0;height:100vh;background:var(--sage);color:var(--paper);
+    display:flex;flex-direction:column;justify-content:space-between;padding:clamp(34px,4vw,60px);overflow:hidden}
+  @media(max-width:880px){ .side{position:relative;height:auto} }
+  .side::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:var(--mauve);opacity:.32;filter:blur(40px);bottom:-120px;right:-120px}
+  .side .top{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+  .side .kicker{font-family:var(--display);font-style:italic;font-size:18px;color:var(--mauve)}
+  .lang{display:flex;border:1px solid rgba(244,242,243,.3);border-radius:999px;overflow:hidden}
+  .lang button{border:0;background:transparent;cursor:pointer;font-size:12px;padding:6px 13px;color:var(--paper);font-family:var(--sans);transition:.3s}
+  .lang button.active{background:var(--paper);color:var(--sage)}
+  .side .mid{position:relative;z-index:2}
+  .avatar{width:104px;height:104px;border-radius:50%;background:linear-gradient(135deg,var(--mauve),var(--blue));display:grid;place-items:center;font-family:var(--display);font-style:italic;font-size:34px;color:#fff;margin-bottom:26px;box-shadow:0 20px 40px -20px rgba(0,0,0,.4)}
+  .side h1{font-family:var(--serif);font-weight:700;font-size:clamp(40px,5vw,68px);line-height:1.04;letter-spacing:.03em}
+  .side .role{font-family:var(--display);font-style:italic;font-size:clamp(18px,2vw,24px);color:var(--mauve);margin-top:8px}
+  .side .tagline{font-size:14px;color:rgba(244,242,243,.82);margin-top:18px;max-width:320px}
+  .side nav{display:flex;flex-direction:column;gap:4px;margin-top:30px;position:relative;z-index:2}
+  .side nav a{text-decoration:none;color:rgba(244,242,243,.62);font-size:14px;letter-spacing:.04em;padding:5px 0;display:flex;align-items:center;gap:12px;transition:.35s}
+  .side nav a .bar{width:18px;height:1px;background:rgba(244,242,243,.5);transition:.35s}
+  .side nav a.active,.side nav a:hover{color:var(--paper)}
+  .side nav a.active .bar{width:40px;background:var(--mauve)}
+  .side .contact-mini{font-size:12.5px;color:rgba(244,242,243,.8);position:relative;z-index:2;display:grid;gap:5px}
+  .side .contact-mini a{color:var(--mauve);text-decoration:none}
+
+  /* ---- right content ---- */
+  .main{padding:clamp(50px,6vw,110px) clamp(28px,5vw,90px)}
+  .block{padding:60px 0;border-bottom:1px solid var(--line);max-width:680px}
+  .block:last-child{border-bottom:0}
+  .label{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+  .label .n{font-family:var(--display);font-style:italic;font-size:18px;color:var(--mauve)}
+  .label h2{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3vw,34px);color:var(--ink)}
+  .lead-p{font-size:clamp(15px,1.6vw,17px);color:var(--ink-soft);line-height:2.05}
+
+  /* strengths inline */
+  .st{display:grid;gap:2px;margin-top:6px}
+  .st .row{display:grid;grid-template-columns:54px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline;transition:.4s}
+  .st .row:hover{padding-left:10px}
+  .st .row .num{font-family:var(--display);font-style:italic;font-size:30px;color:var(--mauve)}
+  .st .row h3{font-family:var(--serif);font-size:18px;color:var(--sage);margin-bottom:4px}
+  .st .row p{font-size:14px;color:var(--ink-soft)}
+
+  /* experience list */
+  .job{padding:26px 0;border-top:1px solid var(--line);transition:.4s;cursor:default}
+  .job:hover{transform:translateX(6px)}
+  .job .head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+  .job h3{font-family:var(--serif);font-size:20px;color:var(--ink)}
+  .job .yr{font-size:12.5px;color:var(--blue);white-space:nowrap}
+  .job .org{font-size:13.5px;color:var(--sage);margin:4px 0 12px}
+  .job ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .job li{font-size:12px;background:rgba(192,169,189,.16);color:var(--sage);border-radius:999px;padding:5px 13px}
+
+  /* story */
+  .narr{display:grid;gap:26px}
+  .narr .item h3{font-family:var(--serif);font-size:17px;color:var(--mauve);margin-bottom:8px}
+  .narr .item p{font-size:14.5px;color:var(--ink-soft);line-height:2}
+  .cat{margin-top:8px;background:linear-gradient(120deg,rgba(192,169,189,.18),rgba(148,167,174,.18));border-radius:18px;padding:26px}
+  .cat .paw{font-family:var(--display);font-style:italic;font-size:24px;color:var(--mauve)}
+  .cat h3{font-family:var(--serif);font-size:17px;color:var(--sage);margin:6px 0 8px}
+  .cat p{font-size:14.5px;color:var(--ink-soft);line-height:2}
+
+  /* info chips */
+  .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .chips div{background:var(--paper);padding:18px 20px;transition:.35s}
+  .chips div:hover{background:#fff}
+  .chips .k{font-size:11px;letter-spacing:.12em;color:var(--blue);margin-bottom:5px}
+  .chips .v{font-family:var(--serif);font-size:15px;color:var(--ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .tag{border:1px solid var(--line);border-radius:999px;padding:8px 18px;font-size:13px;color:var(--sage);transition:.3s}
+  .tag:hover{background:var(--mauve);color:#fff;border-color:var(--mauve);transform:scale(1.06)}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:.85s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+
+  [data-lang="zh"] .en-only{display:none}
+  [data-lang="en"] .zh-only{display:none}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<div class="shell">
+  <!-- LEFT STICKY -->
+  <aside class="side">
+    <div class="top">
+      <span class="kicker">Résumé · 2026</span>
+      <span class="lang"><button data-set="zh" class="active">中</button><button data-set="en">EN</button></span>
+    </div>
+    <div class="mid">
+      <div class="avatar">HW</div>
+      <h1><span class="zh-only">許馨文</span><span class="en-only">Hsin-Wen<br>Hsu</span></h1>
+      <div class="role"><span class="zh-only">行政人員</span><span class="en-only">Administrative Pro</span></div>
+      <p class="tagline"><span class="zh-only">細心 · 耐心 · 有條理 — 能在多項任務並行下維持效率與正確性的行政支援。</span><span class="en-only">Careful · patient · organized — dependable administrative support that stays efficient under parallel workloads.</span></p>
+      <nav id="nav">
+        <a href="#about" class="active"><span class="bar"></span><span class="zh-only">關於</span><span class="en-only">About</span></a>
+        <a href="#strength"><span class="bar"></span><span class="zh-only">優勢</span><span class="en-only">Strengths</span></a>
+        <a href="#exp"><span class="bar"></span><span class="zh-only">工作經歷</span><span class="en-only">Experience</span></a>
+        <a href="#story"><span class="bar"></span><span class="zh-only">自傳</span><span class="en-only">Story</span></a>
+        <a href="#info"><span class="bar"></span><span class="zh-only">基本資料</span><span class="en-only">Profile</span></a>
+      </nav>
+    </div>
+    <div class="contact-mini">
+      <span><span class="zh-only">高雄市鳳山區</span><span class="en-only">Kaohsiung, Taiwan</span></span>
+      <a href="tel:0939998693">0939-998-693</a>
+      <a href="mailto:a880918a@yahoo.com.tw">a880918a@yahoo.com.tw</a>
+    </div>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <main class="main">
+    <section class="block" id="about">
+      <div class="label reveal"><span class="n">01</span><h2><span class="zh-only">關於我</span><span class="en-only">About</span></h2></div>
+      <p class="lead-p reveal d1"><span class="zh-only">畢業於義守大學醫務管理學系，具備醫療體系流程與行政作業的基礎理解；後規劃將職涯重心轉向更貼近實務的行政／營運支援領域。我擅長文件整理、資料彙整與歸檔管理，並具良好的時間管理與溝通協調能力，能在多項任務並行下維持效率與正確性，相信能以細心、耐心且有效率的態度，成為團隊可靠的行政支援角色。</span><span class="en-only">A Healthcare Administration graduate from I-Shou University, I redirected my career toward practical administrative and operations support. I excel at document organization, data compilation and archive management, with strong time-management and coordination skills — staying efficient and accurate under parallel workloads, and serving as a careful, patient and dependable support for any team.</span></p>
+    </section>
+
+    <section class="block" id="strength">
+      <div class="label reveal"><span class="n">02</span><h2><span class="zh-only">我的優勢</span><span class="en-only">Strengths</span></h2></div>
+      <div class="st">
+        <div class="row reveal"><div class="num">01</div><div><h3><span class="zh-only">細心有條理</span><span class="en-only">Meticulous & Organized</span></h3><p><span class="zh-only">重視流程與細節，降低錯誤與重工機率。</span><span class="en-only">Process- and detail-oriented; minimizes errors and rework.</span></p></div></div>
+        <div class="row reveal d1"><div class="num">02</div><div><h3><span class="zh-only">效率與時間管理佳</span><span class="en-only">Efficient & Punctual</span></h3><p><span class="zh-only">能同時處理多項任務並掌握優先順序。</span><span class="en-only">Handles multiple tasks while prioritizing well.</span></p></div></div>
+        <div class="row reveal d2"><div class="num">03</div><div><h3><span class="zh-only">責任感與配合度高</span><span class="en-only">Reliable & Adaptable</span></h3><p><span class="zh-only">願意學習、做事確實，能長期穩定支援團隊。</span><span class="en-only">Eager to learn, thorough — a steady long-term support.</span></p></div></div>
+      </div>
+    </section>
+
+    <section class="block" id="exp">
+      <div class="label reveal"><span class="n">03</span><h2><span class="zh-only">工作經歷</span><span class="en-only">Experience</span></h2></div>
+      <div class="reveal d1">
+        <div class="job">
+          <div class="head"><h3><span class="zh-only">行政助理</span><span class="en-only">Administrative Assistant</span></h3><span class="yr">2024/6 – 2026/1</span></div>
+          <div class="org"><span class="zh-only">崴宇企業有限公司 · 新北市樹林區</span><span class="en-only">Wei-Yu Enterprise Co., Ltd. · Shulin</span></div>
+          <ul><li><span class="zh-only">電話接待</span><span class="en-only">Reception</span></li><li><span class="zh-only">文件整理歸檔</span><span class="en-only">Filing</span></li><li><span class="zh-only">收發信件包裹</span><span class="en-only">Mail & parcels</span></li><li><span class="zh-only">採購與庫存</span><span class="en-only">Procurement</span></li><li><span class="zh-only">主管交辦</span><span class="en-only">Admin support</span></li></ul>
+        </div>
+        <div class="job">
+          <div class="head"><h3><span class="zh-only">門市人員</span><span class="en-only">Retail Associate</span></h3><span class="yr">2023/12 – 2024/4</span></div>
+          <div class="org"><span class="zh-only">尚亨運動用品 · 高雄市楠梓區</span><span class="en-only">Shang-Heng Sports · Nanzih</span></div>
+          <ul><li><span class="zh-only">結帳</span><span class="en-only">Checkout</span></li><li><span class="zh-only">盤點</span><span class="en-only">Stocktaking</span></li><li><span class="zh-only">推銷</span><span class="en-only">Sales</span></li></ul>
+        </div>
+        <div class="job">
+          <div class="head"><h3><span class="zh-only">行政工讀生</span><span class="en-only">Administrative Intern</span></h3><span class="yr">2022/8 – 2022/11</span></div>
+          <div class="org"><span class="zh-only">義大醫院 預防醫學科 · 高雄市燕巢區</span><span class="en-only">E-Da Hospital · Preventive Medicine</span></div>
+          <ul><li><span class="zh-only">病歷數位化</span><span class="en-only">Record digitizing</span></li><li><span class="zh-only">缺項追蹤</span><span class="en-only">Item tracking</span></li><li><span class="zh-only">報告交付</span><span class="en-only">Report delivery</span></li></ul>
+        </div>
+        <div class="job">
+          <div class="head"><h3><span class="zh-only">眼科助理</span><span class="en-only">Ophthalmic Assistant</span></h3><span class="yr">2021/11 – 2022/3</span></div>
+          <div class="org"><span class="zh-only">大林眼科診所 · 高雄市仁武區</span><span class="en-only">Da-Lin Eye Clinic · Renwu</span></div>
+          <ul><li><span class="zh-only">病患接待</span><span class="en-only">Reception</span></li><li><span class="zh-only">基礎眼科檢查</span><span class="en-only">Basic exams</span></li><li><span class="zh-only">病歷登錄</span><span class="en-only">Record entry</span></li></ul>
+        </div>
+        <div class="job">
+          <div class="head"><h3><span class="zh-only">牙醫助理</span><span class="en-only">Dental Assistant</span></h3><span class="yr">2021/1 – 2021/4</span></div>
+          <div class="org"><span class="zh-only">成泰牙醫診所 · 高雄市仁武區</span><span class="en-only">Cheng-Tai Dental Clinic · Renwu</span></div>
+          <ul><li><span class="zh-only">門診協助</span><span class="en-only">Chairside</span></li><li><span class="zh-only">器械消毒</span><span class="en-only">Sterilization</span></li><li><span class="zh-only">行政作業</span><span class="en-only">Admin</span></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="story">
+      <div class="label reveal"><span class="n">04</span><h2><span class="zh-only">自傳</span><span class="en-only">My Story</span></h2></div>
+      <div class="narr">
+        <div class="item reveal"><h3><span class="zh-only">關於我</span><span class="en-only">Who I Am</span></h3><p><span class="zh-only">從小做事細心、有耐心，面對任何事情都希望完整理解與確實完成。個性慢熱，但熟悉環境後能穩定投入，並用心觀察、學習與成長，常擔任團隊中整理與統整的角色。</span><span class="en-only">Careful and patient since childhood, I want to fully understand and thoroughly complete every task. Slow to warm up but steady once settled, I often take on organizing roles within a team.</span></p></div>
+        <div class="item reveal"><h3><span class="zh-only">求學與成就</span><span class="en-only">Education & Achievement</span></h3><p><span class="zh-only">義守大學專題運用 SPSS 完成〈醫療糾紛與民眾就醫意願〉研究。於義大醫院負責高科大體檢報告建檔，面對龐大資料量，我規劃每日進度、分批處理並建立檢查表，最終如期完成、錯誤率極低，獲主管稱讚。</span><span class="en-only">My I-Shou capstone used SPSS to study medical disputes. At E-Da Hospital I digitized exam reports for NKUST — scheduling daily progress and using checklists to finish on time with a very low error rate, earning praise.</span></p></div>
+        <div class="item reveal"><h3><span class="zh-only">克服困難</span><span class="en-only">Problem-Solving</span></h3><p><span class="zh-only">專題中曾遇組員方向分歧與統計異常，我冷靜協助重整架構與分工，並與指導老師重新檢視問卷、以 SPSS 交叉比對，成功修正並完成研究，學會在困難中保持耐心。</span><span class="en-only">Facing team disagreements and abnormal statistics, I helped restructure the work and cross-validated in SPSS with our advisor — learning patient, step-by-step problem-solving.</span></p></div>
+        <div class="cat reveal">
+          <span class="paw">ʚ•ᴥ•ɞ</span>
+          <h3><span class="zh-only">未來期望</span><span class="en-only">Future Aspirations</span></h3>
+          <p><span class="zh-only">我非常熱愛動物，家中飼養三隻貓咪，平時也關注寵物健康與行為知識。希望未來能結合行政與資料處理專長，投入與寵物相關的行政或服務性工作。</span><span class="en-only">I love animals and care for three cats at home, following pet health and behavior closely. I hope to combine my administrative strengths with pet-related service work.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="info">
+      <div class="label reveal"><span class="n">05</span><h2><span class="zh-only">基本資料與專長</span><span class="en-only">Profile & Skills</span></h2></div>
+      <div class="chips reveal">
+        <div><div class="k zh-only">性別 / 年齡</div><div class="k en-only">Gender / Age</div><div class="v zh-only">女 · 26 歲</div><div class="v en-only">Female · 26</div></div>
+        <div><div class="k zh-only">語言</div><div class="k en-only">Languages</div><div class="v zh-only">英文略懂 · 台語中等</div><div class="v en-only">English · Taiwanese</div></div>
+        <div><div class="k zh-only">駕照</div><div class="k en-only">License</div><div class="v zh-only">普通重型機車</div><div class="v en-only">Motorcycle</div></div>
+        <div><div class="k zh-only">希望地點</div><div class="k en-only">Locations</div><div class="v zh-only">台北 · 新北 · 高雄</div><div class="v en-only">Taipei · Kaohsiung</div></div>
+        <div><div class="k zh-only">遠端工作</div><div class="k en-only">Remote</div><div class="v zh-only">有意願</div><div class="v en-only">Open to remote</div></div>
+        <div><div class="k zh-only">可上班 / 待遇</div><div class="k en-only">Start / Pay</div><div class="v zh-only">隨時 · 面議</div><div class="v en-only">Now · Negotiable</div></div>
+      </div>
+      <div class="tags reveal d1">
+        <span class="tag">#ChatGPT</span><span class="tag">#Midjourney</span><span class="tag">#PowerPoint</span><span class="tag">#Excel</span><span class="tag">#Word</span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  const html=document.documentElement;
+  document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{
+    const s=b.dataset.set; html.setAttribute('data-lang',s); html.setAttribute('lang',s==='zh'?'zh-Hant':'en');
+    document.querySelectorAll('.lang button').forEach(x=>x.classList.toggle('active',x===b));
+  }));
+  // progress bar
+  const bar=document.getElementById('progress');
+  addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;bar.style.width=(scrollY/h*100)+'%'},{passive:true});
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // nav active
+  const links=[...document.querySelectorAll('#nav a')];
+  const secs=[...document.querySelectorAll('.block')];
+  const navIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id))}}),{threshold:.4,rootMargin:'-10% 0px -40% 0px'});
+  secs.forEach(s=>navIO.observe(s));
+</script>
+</body>
+</html>

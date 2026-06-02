@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>許馨文 · 履歷｜方向 B 柔卡視差</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F4F2F3; --mauve:#C0A9BD; --blue:#94A7AE; --sage:#64766A;
+    --ink:#2e3530; --ink-soft:#5a625b;
+    --sans:"Noto Sans TC",sans-serif; --serif:"Noto Serif TC",serif;
+    --display:"Cormorant Garamond","Noto Serif TC",serif;
+    --r:26px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.8;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  ::selection{background:var(--mauve);color:#fff}
+  img{display:block;max-width:100%}
+
+  /* nav */
+  .nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:100;display:flex;gap:6px;align-items:center;
+    background:rgba(255,255,255,.6);backdrop-filter:blur(14px);border:1px solid rgba(100,118,106,.14);
+    border-radius:999px;padding:7px 8px 7px 20px;box-shadow:0 10px 30px -18px rgba(46,53,48,.5)}
+  .nav .name{font-family:var(--serif);font-weight:600;font-size:15px;color:var(--sage);margin-right:8px}
+  .nav a{text-decoration:none;color:var(--ink-soft);font-size:13px;padding:7px 13px;border-radius:999px;transition:.3s}
+  .nav a:hover{color:var(--sage);background:rgba(192,169,189,.18)}
+  .nav .lang{display:flex;margin-left:6px;border-radius:999px;overflow:hidden;border:1px solid rgba(100,118,106,.18)}
+  .nav .lang button{border:0;background:transparent;cursor:pointer;font-size:12px;padding:6px 12px;color:var(--ink-soft);font-family:var(--sans);transition:.3s}
+  .nav .lang button.active{background:var(--sage);color:#fff}
+  @media(max-width:760px){ .nav a:not(.always){display:none} }
+
+  /* hero */
+  .hero{min-height:100vh;display:grid;place-items:center;position:relative;text-align:center;overflow:hidden}
+  .blob{position:absolute;border-radius:50%;filter:blur(50px);opacity:.55;will-change:transform}
+  .blob.b1{width:560px;height:560px;background:var(--mauve);top:-120px;left:-80px}
+  .blob.b2{width:520px;height:520px;background:var(--blue);bottom:-160px;right:-60px;opacity:.5}
+  .blob.b3{width:360px;height:360px;background:var(--sage);top:40%;left:55%;opacity:.32}
+  .hero-inner{position:relative;z-index:2;padding:0 24px}
+  .hello{font-family:var(--display);font-style:italic;font-size:clamp(22px,3vw,34px);color:var(--sage)}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(64px,15vw,200px);line-height:.95;letter-spacing:.03em;color:var(--ink);margin:6px 0 14px}
+  .pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .pill{background:rgba(255,255,255,.55);border:1px solid rgba(100,118,106,.16);backdrop-filter:blur(8px);border-radius:999px;padding:9px 20px;font-size:14px;color:var(--sage)}
+  .pill b{color:var(--mauve);font-weight:500}
+  .down{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:2;font-size:12px;letter-spacing:.3em;color:var(--sage)}
+  .down span{display:block;width:1px;height:38px;background:var(--sage);margin:10px auto 0;animation:fall 2s ease-in-out infinite}
+  @keyframes fall{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+  /* generic section */
+  section{padding:clamp(80px,12vh,150px) clamp(22px,6vw,90px);position:relative}
+  .wrap{max-width:1120px;margin:0 auto}
+  .shead{position:sticky;top:0;padding:26px 0;z-index:5;display:flex;align-items:baseline;gap:16px;background:linear-gradient(var(--paper) 60%,transparent);margin-bottom:20px}
+  .shead .lead{font-family:var(--display);font-style:italic;font-size:24px;color:var(--mauve)}
+  .shead h2{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4.5vw,50px);color:var(--ink)}
+
+  /* about strip */
+  .about{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .about p{font-size:clamp(15px,1.7vw,18px);color:var(--ink-soft);line-height:2.1}
+  .photo{aspect-ratio:4/5;border-radius:var(--r);background:linear-gradient(135deg,var(--mauve),var(--blue));position:relative;overflow:hidden;display:grid;place-items:center;color:rgba(255,255,255,.85);font-family:var(--display);font-style:italic;font-size:20px;box-shadow:0 30px 60px -30px rgba(100,118,106,.6)}
+  .photo small{display:block;font-family:var(--sans);font-size:11px;letter-spacing:.2em;margin-top:8px;opacity:.8}
+  @media(max-width:760px){ .about{grid-template-columns:1fr} }
+
+  /* strength cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .card{background:#fff;border-radius:var(--r);padding:36px 30px;box-shadow:0 24px 50px -34px rgba(46,53,48,.5);transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;border:1px solid rgba(100,118,106,.08)}
+  .card:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 40px 70px -34px rgba(100,118,106,.55)}
+  .card .ic{width:50px;height:50px;border-radius:14px;display:grid;place-items:center;font-family:var(--display);font-style:italic;font-size:24px;color:#fff;margin-bottom:18px}
+  .card:nth-child(1) .ic{background:var(--mauve)} .card:nth-child(2) .ic{background:var(--blue)} .card:nth-child(3) .ic{background:var(--sage)}
+  .card h3{font-family:var(--serif);font-size:21px;color:var(--ink);margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--ink-soft)}
+
+  /* experience — full bleed colored band */
+  .band{background:var(--sage);color:var(--paper);border-radius:clamp(28px,4vw,56px);margin:0 auto;max-width:1280px}
+  .band .shead{background:linear-gradient(var(--sage) 60%,transparent)}
+  .band .shead h2{color:var(--paper)} .band .shead .lead{color:var(--mauve)}
+  .exp{display:grid;gap:14px}
+  .exp-row{display:grid;grid-template-columns:120px 1fr auto;gap:30px;align-items:start;padding:28px;border-radius:var(--r);transition:.45s;cursor:default}
+  .exp-row:hover{background:rgba(244,242,243,.1);transform:scale(1.012)}
+  .exp-row .yr{font-family:var(--display);font-style:italic;font-size:30px;color:var(--mauve)}
+  .exp-row h3{font-family:var(--serif);font-size:21px;color:var(--paper)}
+  .exp-row .org{font-size:14px;color:rgba(244,242,243,.78);margin:3px 0 12px}
+  .exp-row ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .exp-row li{font-size:12.5px;background:rgba(244,242,243,.12);border-radius:999px;padding:5px 13px;color:rgba(244,242,243,.92)}
+  .exp-row .dur{font-size:12px;color:var(--blue);white-space:nowrap;text-align:right}
+  @media(max-width:760px){ .exp-row{grid-template-columns:1fr;gap:8px} .exp-row .dur{text-align:left} }
+
+  /* story accordion-ish blocks */
+  .story{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .sblock{background:#fff;border-radius:var(--r);padding:34px;border:1px solid rgba(100,118,106,.08);box-shadow:0 24px 50px -38px rgba(46,53,48,.5);transition:.45s}
+  .sblock:hover{transform:translateY(-6px)}
+  .sblock h3{font-family:var(--serif);font-size:20px;color:var(--sage);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+  .sblock h3 i{width:8px;height:8px;border-radius:50%;background:var(--mauve);display:inline-block}
+  .sblock p{font-size:14.5px;color:var(--ink-soft);line-height:2}
+  .sblock.cat{grid-column:1/-1;background:linear-gradient(120deg,var(--mauve),var(--blue));color:#fff;text-align:center}
+  .sblock.cat h3{color:#fff;justify-content:center} .sblock.cat h3 i{background:#fff}
+  .sblock.cat p{color:rgba(255,255,255,.92);max-width:620px;margin:0 auto}
+  .sblock.cat .paw{font-family:var(--display);font-style:italic;font-size:26px;display:block;margin-bottom:10px}
+  @media(max-width:760px){ .story{grid-template-columns:1fr} }
+
+  /* info + skills */
+  .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+  .icell{background:#fff;border-radius:18px;padding:22px;border:1px solid rgba(100,118,106,.1);transition:.4s}
+  .icell:hover{transform:scale(1.04);border-color:var(--mauve)}
+  .icell .k{font-size:11px;letter-spacing:.14em;color:var(--blue);margin-bottom:6px}
+  .icell .v{font-family:var(--serif);font-size:16px;color:var(--ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .tag{border:1px solid rgba(100,118,106,.22);border-radius:999px;padding:10px 22px;font-size:14px;color:var(--sage);transition:.3s}
+  .tag:hover{background:var(--mauve);color:#fff;border-color:var(--mauve);transform:translateY(-4px) scale(1.05)}
+
+  /* contact */
+  .contact{text-align:center}
+  .contact .big{font-family:var(--display);font-style:italic;font-size:clamp(46px,9vw,128px);color:var(--sage);line-height:1}
+  .crows{display:inline-grid;gap:16px;margin-top:40px}
+  .crows a,.crows span.val{color:var(--ink);text-decoration:none;font-size:17px}
+  .crows a:hover{color:var(--mauve)}
+  .crows>div{display:grid;grid-template-columns:80px 1fr;gap:20px;align-items:baseline;text-align:left}
+  .crows .k{font-size:11px;letter-spacing:.16em;color:var(--blue);text-align:right}
+  footer{text-align:center;padding:40px;font-size:12px;color:var(--blue);letter-spacing:.1em}
+
+  .reveal{opacity:0;transform:translateY(40px) scale(.98);transition:.9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+
+  [data-lang="zh"] .en-only{display:none}
+  [data-lang="en"] .zh-only{display:none}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <span class="name always"><span class="zh-only">許馨文</span><span class="en-only">H. W. Hsu</span></span>
+  <a href="#about"><span class="zh-only">關於</span><span class="en-only">About</span></a>
+  <a href="#strength"><span class="zh-only">優勢</span><span class="en-only">Strengths</span></a>
+  <a href="#exp"><span class="zh-only">經歷</span><span class="en-only">Work</span></a>
+  <a href="#story"><span class="zh-only">自傳</span><span class="en-only">Story</span></a>
+  <a href="#contact"><span class="zh-only">聯絡</span><span class="en-only">Contact</span></a>
+  <span class="lang"><button data-set="zh" class="active">中</button><button data-set="en">EN</button></span>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob b1" data-speed="0.18"></div>
+  <div class="blob b2" data-speed="0.10"></div>
+  <div class="blob b3" data-speed="0.26"></div>
+  <div class="hero-inner">
+    <div class="hello"><span class="zh-only">您好，我是</span><span class="en-only">Hello, I’m</span></div>
+    <h1><span class="zh-only">許馨文</span><span class="en-only">Hsin-Wen</span></h1>
+    <div class="pills">
+      <span class="pill"><b>—</b> <span class="zh-only">行政人員</span><span class="en-only">Administrative Pro</span></span>
+      <span class="pill"><b>—</b> <span class="zh-only">細心 · 耐心 · 有條理</span><span class="en-only">Careful · Patient · Organized</span></span>
+      <span class="pill"><b>—</b> <span class="zh-only">高雄 · 鳳山</span><span class="en-only">Kaohsiung, TW</span></span>
+    </div>
+  </div>
+  <div class="down"><span class="zh-only">SCROLL</span></div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="reveal">
+        <div class="shead"><span class="lead">about</span><h2><span class="zh-only">關於我</span><span class="en-only">About</span></h2></div>
+        <p><span class="zh-only">畢業於義守大學醫務管理學系，具備醫療體系流程與行政作業的基礎理解；後規劃將職涯重心轉向更貼近實務的行政／營運支援領域。我擅長文件整理、資料彙整與歸檔管理，能在多項任務並行下維持效率與正確性，相信能以細心、耐心且有效率的態度，成為團隊可靠的行政支援。</span><span class="en-only">A Healthcare Administration graduate from I-Shou University, I redirected my career toward hands-on administrative and operations support. I excel at document organization, data compilation and archiving, staying efficient and accurate under parallel workloads — a careful, patient and dependable support for any team.</span></p>
+      </div>
+      <div class="photo reveal d1">
+        <div style="text-align:center">Hsin-Wen Hsu<small><span class="zh-only">照片預留位</span><span class="en-only">PHOTO PLACEHOLDER</span></small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section id="strength">
+  <div class="wrap">
+    <div class="shead reveal"><span class="lead">strengths</span><h2><span class="zh-only">我的優勢</span><span class="en-only">My Strengths</span></h2></div>
+    <div class="cards">
+      <div class="card reveal"><div class="ic">01</div><h3><span class="zh-only">細心有條理</span><span class="en-only">Meticulous</span></h3><p><span class="zh-only">重視流程與細節，降低錯誤與重工機率。</span><span class="en-only">Process- and detail-oriented; minimizes errors and rework.</span></p></div>
+      <div class="card reveal d1"><div class="ic">02</div><h3><span class="zh-only">效率與時間管理</span><span class="en-only">Efficient</span></h3><p><span class="zh-only">能同時處理多項任務並掌握優先順序。</span><span class="en-only">Manages multiple tasks while prioritizing effectively.</span></p></div>
+      <div class="card reveal d2"><div class="ic">03</div><h3><span class="zh-only">責任感與配合度</span><span class="en-only">Reliable</span></h3><p><span class="zh-only">願意學習、做事確實，能長期穩定支援團隊。</span><span class="en-only">Eager to learn and thorough — a steady, long-term support.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE BAND -->
+<section id="exp">
+  <div class="band">
+    <div style="padding:clamp(40px,5vw,70px) clamp(24px,5vw,70px)">
+      <div class="shead reveal"><span class="lead">work</span><h2><span class="zh-only">工作經歷</span><span class="en-only">Experience</span></h2></div>
+      <div class="exp">
+        <div class="exp-row reveal">
+          <div class="yr">2024</div>
+          <div><h3><span class="zh-only">行政助理</span><span class="en-only">Administrative Assistant</span></h3>
+            <div class="org"><span class="zh-only">崴宇企業有限公司 · 新北樹林</span><span class="en-only">Wei-Yu Enterprise · Shulin</span></div>
+            <ul><li><span class="zh-only">電話接待</span><span class="en-only">Reception</span></li><li><span class="zh-only">文件歸檔</span><span class="en-only">Filing</span></li><li><span class="zh-only">收發信件</span><span class="en-only">Mail</span></li><li><span class="zh-only">採購庫存</span><span class="en-only">Procurement</span></li><li><span class="zh-only">主管交辦</span><span class="en-only">Support</span></li></ul></div>
+          <div class="dur"><span class="zh-only">1 年 8 個月</span><span class="en-only">1 yr 8 mo</span></div>
+        </div>
+        <div class="exp-row reveal">
+          <div class="yr">2023</div>
+          <div><h3><span class="zh-only">門市人員</span><span class="en-only">Retail Associate</span></h3>
+            <div class="org"><span class="zh-only">尚亨運動用品 · 高雄楠梓</span><span class="en-only">Shang-Heng Sports · Nanzih</span></div>
+            <ul><li><span class="zh-only">結帳</span><span class="en-only">Checkout</span></li><li><span class="zh-only">盤點</span><span class="en-only">Stocktaking</span></li><li><span class="zh-only">推銷</span><span class="en-only">Sales</span></li></ul></div>
+          <div class="dur"><span class="zh-only">5 個月</span><span class="en-only">5 mo</span></div>
+        </div>
+        <div class="exp-row reveal">
+          <div class="yr">2022</div>
+          <div><h3><span class="zh-only">行政工讀生</span><span class="en-only">Administrative Intern</span></h3>
+            <div class="org"><span class="zh-only">義大醫院 預防醫學科 · 高雄燕巢</span><span class="en-only">E-Da Hospital · Preventive Medicine</span></div>
+            <ul><li><span class="zh-only">病歷數位化</span><span class="en-only">Record digitizing</span></li><li><span class="zh-only">缺項追蹤</span><span class="en-only">Item tracking</span></li><li><span class="zh-only">報告交付</span><span class="en-only">Report delivery</span></li></ul></div>
+          <div class="dur"><span class="zh-only">4 個月</span><span class="en-only">4 mo</span></div>
+        </div>
+        <div class="exp-row reveal">
+          <div class="yr">2021</div>
+          <div><h3><span class="zh-only">眼科助理</span><span class="en-only">Ophthalmic Assistant</span></h3>
+            <div class="org"><span class="zh-only">大林眼科診所 · 高雄仁武</span><span class="en-only">Da-Lin Eye Clinic · Renwu</span></div>
+            <ul><li><span class="zh-only">病患接待</span><span class="en-only">Reception</span></li><li><span class="zh-only">基礎檢查</span><span class="en-only">Basic exams</span></li><li><span class="zh-only">病歷登錄</span><span class="en-only">Record entry</span></li></ul></div>
+          <div class="dur"><span class="zh-only">5 個月</span><span class="en-only">5 mo</span></div>
+        </div>
+        <div class="exp-row reveal">
+          <div class="yr">2021</div>
+          <div><h3><span class="zh-only">牙醫助理</span><span class="en-only">Dental Assistant</span></h3>
+            <div class="org"><span class="zh-only">成泰牙醫診所 · 高雄仁武</span><span class="en-only">Cheng-Tai Dental · Renwu</span></div>
+            <ul><li><span class="zh-only">門診協助</span><span class="en-only">Chairside</span></li><li><span class="zh-only">器械消毒</span><span class="en-only">Sterilization</span></li><li><span class="zh-only">行政作業</span><span class="en-only">Admin</span></li></ul></div>
+          <div class="dur"><span class="zh-only">4 個月</span><span class="en-only">4 mo</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story">
+  <div class="wrap">
+    <div class="shead reveal"><span class="lead">story</span><h2><span class="zh-only">我的自傳</span><span class="en-only">My Story</span></h2></div>
+    <div class="story">
+      <div class="sblock reveal"><h3><i></i><span class="zh-only">關於我</span><span class="en-only">Who I Am</span></h3><p><span class="zh-only">從小做事細心、有耐心，面對任何事情都希望完整理解與確實完成。個性慢熱，但熟悉環境後能穩定投入，並用心觀察、學習與成長，常在團隊中擔任整理與統整的角色。</span><span class="en-only">Careful and patient since childhood, I aim to fully understand and thoroughly finish every task. Slow to warm up but steady once settled, I often take on organizing and integrating roles within a team.</span></p></div>
+      <div class="sblock reveal d1"><h3><i></i><span class="zh-only">求學經歷</span><span class="en-only">Education</span></h3><p><span class="zh-only">義守大學修習醫療品質管理、管理學、醫務管理實務與文書處理實務。專題〈醫療糾紛與民眾就醫意願〉中學會問卷設計、資料蒐集與 SPSS 分析，培養邏輯思考與問題解決能力。</span><span class="en-only">At I-Shou University I studied healthcare quality, management and document processing. My capstone on medical disputes taught me questionnaire design, data collection and SPSS analysis.</span></p></div>
+      <div class="sblock reveal"><h3><i></i><span class="zh-only">克服困難</span><span class="en-only">Problem-Solving</span></h3><p><span class="zh-only">專題曾遇組員分歧與統計異常。我冷靜協助重整架構與分工，與指導老師重新檢視問卷、以 SPSS 交叉比對，成功修正並完成研究，學會在困難中保持耐心。</span><span class="en-only">Facing team disagreements and abnormal statistics, I helped restructure the work and cross-validated data in SPSS with our advisor — resolving the issue and learning patient, step-by-step problem-solving.</span></p></div>
+      <div class="sblock reveal d1"><h3><i></i><span class="zh-only">成就感</span><span class="en-only">Achievement</span></h3><p><span class="zh-only">在義大醫院負責高科大校區體檢報告建檔，資料量大、時間緊。我規劃每日進度、分批處理並建立檢查表，最終如期完成、錯誤率極低，獲主管稱讚。</span><span class="en-only">At E-Da Hospital I digitized exam reports for NKUST under tight deadlines — scheduling daily progress and using checklists to finish on time with a very low error rate, earning praise.</span></p></div>
+      <div class="sblock cat reveal"><span class="paw">ʚ•ᴥ•ɞ</span><h3><span class="zh-only">未來期望</span><span class="en-only">Future</span></h3><p><span class="zh-only">我非常熱愛動物，家中飼養三隻貓咪，平時也關注寵物健康與行為知識。希望未來結合行政與資料處理專長，投入與寵物相關的行政或服務性工作。</span><span class="en-only">I love animals and care for three cats at home, following pet health and behavior closely. I hope to combine my administrative strengths with pet-related service work.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO + SKILLS -->
+<section id="info">
+  <div class="wrap">
+    <div class="shead reveal"><span class="lead">profile</span><h2><span class="zh-only">基本資料與專長</span><span class="en-only">Profile & Skills</span></h2></div>
+    <div class="info">
+      <div class="icell reveal"><div class="k zh-only">性別 / 年齡</div><div class="k en-only">Gender / Age</div><div class="v zh-only">女 · 26 歲</div><div class="v en-only">Female · 26</div></div>
+      <div class="icell reveal"><div class="k zh-only">語言</div><div class="k en-only">Languages</div><div class="v zh-only">英文略懂 · 台語中等</div><div class="v en-only">English · Taiwanese</div></div>
+      <div class="icell reveal"><div class="k zh-only">駕照</div><div class="k en-only">License</div><div class="v zh-only">普通重型機車</div><div class="v en-only">Motorcycle</div></div>
+      <div class="icell reveal"><div class="k zh-only">希望地點</div><div class="k en-only">Locations</div><div class="v zh-only">台北 · 新北 · 高雄</div><div class="v en-only">Taipei · Kaohsiung</div></div>
+      <div class="icell reveal"><div class="k zh-only">遠端</div><div class="k en-only">Remote</div><div class="v zh-only">有意願</div><div class="v en-only">Open</div></div>
+      <div class="icell reveal"><div class="k zh-only">可上班</div><div class="k en-only">Start</div><div class="v zh-only">隨時</div><div class="v en-only">Now</div></div>
+    </div>
+    <div class="tags reveal">
+      <span class="tag">#ChatGPT</span><span class="tag">#Midjourney</span><span class="tag">#PowerPoint</span><span class="tag">#Excel</span><span class="tag">#Word</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="big reveal">Say hello.</div>
+    <div class="crows reveal">
+      <div><span class="k">TEL</span><a href="tel:0939998693">0939-998-693</a></div>
+      <div><span class="k">MAIL</span><a href="mailto:a880918a@yahoo.com.tw">a880918a@yahoo.com.tw</a></div>
+      <div><span class="k zh-only">地址</span><span class="k en-only">ADDR</span><span class="val zh-only">高雄市鳳山區青年路***</span><span class="val en-only">Qingnian Rd., Fengshan, Kaohsiung</span></div>
+      <div><span class="k zh-only">待遇</span><span class="k en-only">PAY</span><span class="val zh-only">面議</span><span class="val en-only">Negotiable</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 <span class="zh-only">許馨文</span><span class="en-only">Hsin-Wen Hsu</span> · <span class="zh-only">方向 B 柔卡視差</span><span class="en-only">Direction B — Soft Cards</span></footer>
+
+<script>
+  const html=document.documentElement;
+  document.querySelectorAll('.nav .lang button').forEach(b=>b.addEventListener('click',()=>{
+    const s=b.dataset.set; html.setAttribute('data-lang',s); html.setAttribute('lang',s==='zh'?'zh-Hant':'en');
+    document.querySelectorAll('.nav .lang button').forEach(x=>x.classList.toggle('active',x===b));
+  }));
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // parallax blobs
+  const blobs=[...document.querySelectorAll('.blob')];
+  addEventListener('scroll',()=>{const y=scrollY;blobs.forEach(b=>{const s=parseFloat(b.dataset.speed);b.style.transform=`translateY(${y*s}px)`})},{passive:true});
+</script>
+</body>
+</html>
