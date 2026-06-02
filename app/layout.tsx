@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description:
     "許馨文的個人履歷網頁 — 行政人員。細心、耐心、有條理，能在多項任務並行下維持效率與正確性的行政支援。",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/favicon.ico?v=3",
+    shortcut: "/favicon.ico?v=3",
   },
 };
 
